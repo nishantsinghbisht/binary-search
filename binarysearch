@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+int sort(int a[],int n)
+{
+	int temp;
+	for(int i=0;i<n-1;i++)
+	{
+		for(int j=i+1;j<n;j++)
+		{
+			if(a[i]>a[j])
+			{
+			
+			temp =a[i];
+			a[i]=a[j];
+			a[j]=temp;
+		}
+		}
+	}
+  cout<<"new array is = "<<endl;
+	for(int i=0;i<n;i++)
+	{
+	cout<<a[i]<<endl;	
+}
+}
+void binary(int a[],int n,int key)
+{
+	int high,low,mid,c=0;
+	high =n-1;
+	low =0;
+	while(low<=high)
+	{
+		mid =(low+high)/2;
+		if(a[mid]==key)
+		{
+			c =1;
+			break;
+		}
+		else if(a[mid]<key)
+		{
+			low =mid+1;
+		}
+		else
+		{
+			high =mid-1;
+			i=i+2;
+		}
+	}
+	if(c==1)
+	{
+		cout<<"present"<<endl;
+	}
+	else
+      {
+      	cout<<"not present "<<endl;
+	  }
+}
+int main()
+{
+	int t;
+	cout<<"how many array you want to solve = ";
+	cin>>t;
+	while(t!=0)
+	{
+	int n;
+	cout<<"enter your array length = ";
+	cin>>n;
+	int a[n];
+	for(int i =0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	sort(a,n);
+	int key;
+	cout<<"enter element you want to search  = ";
+	cin>>key;
+	binary(a,n,key);
+t--;
+}
+	return 0;
+}
